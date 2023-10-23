@@ -21,8 +21,8 @@ export class News extends Component {
 
 
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         console.log("From News App");
         this.state = {
             articles: this.articles,
@@ -34,10 +34,13 @@ export class News extends Component {
     }
 
     async updateNews() {
+        this.props.setProgress(20)
         this.setState({ loading: true })
         let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=175f8398b44a4e5990913b315a4f9f54&pageSize=${this.props.pageSize}&page=${this.state.page}`;
         let data = await fetch(url);
+        this.props.setProgress(50)
         let ParsedData = await data.json();
+        this.props.setProgress(70)
         console.log(ParsedData);
         this.setState(
             {
@@ -45,6 +48,7 @@ export class News extends Component {
                 loading: false,
                 totalResult: ParsedData.articles.length
             })
+        this.props.setProgress(100)
     }
 
 
@@ -53,18 +57,22 @@ export class News extends Component {
     }
 
     fetchMoreData = async () => {
+        this.props.setProgress(20)
         this.setState({ page: (this.state.page + 1), })
         this.setState({ loading: true })
+        this.props.setProgress(40)
         let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=175f8398b44a4e5990913b315a4f9f54&pageSize=${this.props.pageSize}&page=${this.state.page}`;
+        this.props.setProgress(60)
         let data = await fetch(url);
         let ParsedData = await data.json();
+        this.props.setProgress(80)
         this.setState(
             {
                 articles: this.state.articles.concat(ParsedData.articles),
                 loading: false,
                 totalResult: ParsedData.articles.length
             })
-
+        this.props.setProgress(100)
     };
 
     // handleprevBtn = async () => {

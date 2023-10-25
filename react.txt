@@ -1,0 +1,17 @@
+What is Hooks?
+    Hooks are a type of function in JavaScript that allow you to use state and other React features without writing a class. They were introduced in React
+
+
+Commonly Used React Hooks?
+    useState 
+        - Update and set initial value state.
+    
+    useEffect
+        - Runs after the component has rendered,
+        - but before it unmounts (like componentDidMount or componentWillUnmount).
+    
+    useContext
+        - Allows you to access a context object in your function components.
+
+    useRef
+        - Creates an instance of ref that can be used to store values between renders.

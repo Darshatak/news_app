@@ -15,3 +15,14 @@ Commonly Used React Hooks?
 
     useRef
         - Creates an instance of ref that can be used to store values between renders.
+
+
+
+
+
+
+Mern Stack
+- MongoDB: NoSQL database for storing data like documents, key-value pairs, etc.
+- Express: Backend framework for Node.js which provides a robust set of features for web applications.
+- React: A JavaScript library for building user interfaces
+- Node.js: An open source server environment | Javascript Web Server
